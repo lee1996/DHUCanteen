@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_height"
+    android:background="@color/title_color_ff0000"
+    >
+    <!--<ImageView-->
+        <!--android:id="@+id/m_fml_title_back"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:src="@drawable/dhu"-->
+        <!--android:layout_toLeftOf="@+id/m_fml_title_tv"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:paddingLeft="-20dp"/>-->
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:id="@+id/m_fml_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题"
+        android:textSize="@dimen/title_center_size"
+        android:textColor="@color/white"
+         />
+    <ImageButton
+        android:id="@+id/user"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/m_fml_title_tv"
+        android:layout_alignParentRight="true"
+        android:paddingRight="-50dp"
+        android:src="@drawable/use"
+        android:background="@color/title_color_ff0000"/>
+
+
+
+</RelativeLayout>
