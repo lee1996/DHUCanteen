@@ -1,11 +1,15 @@
 package com.example.customshoppingcardemo;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +18,7 @@ import com.example.baseactivity.BaseActivity;
 import com.example.datasave.DemoData;
 import com.example.datasave.GoodsDataBaseInterface;
 import com.example.datasave.OperateGoodsDataBase;
+import com.example.person.PersonActivity;
 import com.example.recycler.DividerItemDecoration;
 import com.example.recycler.FirstCanteenFirstFloorAdapter;
 import com.example.recycler.FirstCanteenSecondFloorAdapter;
@@ -22,10 +27,14 @@ import com.example.recycler.RecyclerViewMenuAdapter;
 import com.example.recycler.SecondCanteenFirstFloorAdapter;
 import com.example.recycler.SecondCanteenSecondFloorAdapter;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
 public class MainActivity extends BaseActivity {
     /**
      * 标题
@@ -57,7 +66,7 @@ public class MainActivity extends BaseActivity {
      * 图片按钮跳转到用户信息界面
      */
     @InjectView(R.id.user)
-    ImageButton user;
+    ImageView user;
     /**
      * 物品总数量
      */
@@ -95,7 +104,15 @@ public class MainActivity extends BaseActivity {
      */
     @InjectView(R.id.m_list_car_lay)
     RelativeLayout mCarLay;
-
+    /**
+     * 所需热量
+     */
+    @InjectView(R.id.need)
+    TextView need;
+    /**
+     * 数据库的初始化
+     */
+    private SharedPreferences preferences;
     static int sum=0;
     @Override
     protected void onCreate(Bundle arg0) {
@@ -106,6 +123,17 @@ public class MainActivity extends BaseActivity {
         initView();
         setRecyclerView();
         initHttp();
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, PersonActivity.class);
+                startActivity(intent);
+            }
+        });
+        preferences=getSharedPreferences("needCal",MODE_PRIVATE);
+        float init=(float)12.3;
+        float needcal=preferences.getFloat("need",init);
+        need.setText(String.valueOf(needcal));
     }
     private void initView() {
         mGoodsDataBaseInterface = OperateGoodsDataBase.getInstance();
@@ -506,4 +534,19 @@ public class MainActivity extends BaseActivity {
             mListAllNum.setVisibility(View.VISIBLE);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.leftin,R.anim.rightout);
+    }
+
+
 }

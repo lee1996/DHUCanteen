@@ -84,23 +84,42 @@
             android:layout_toRightOf="@+id/m_list_all_price"
             android:background="@color/color_f2f2f2"/>
         <TextView
-            android:id="@+id/need"
+            android:id="@+id/need_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/m_listview"
             android:layout_marginTop="5dp"
             android:layout_centerVertical="true"
             android:textColor="@color/color_898787"
-            android:text="所需摄入热量：50"/>
-        <Button
+            android:text="所需摄入热量："/>
+        <TextView
+            android:id="@+id/need"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/need_label"
+            android:layout_marginTop="5dp"
             android:layout_centerVertical="true"
-            android:id="@+id/m_list_submit"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:background="@color/color_fa5858"
-            android:text="确定"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/white"/>
+            android:textColor="@color/color_898787"
+            android:text="123"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/need"
+            android:layout_marginTop="5dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_898787"
+            android:text="千卡"
+            />
+        <!--<Button-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:id="@+id/m_list_submit"-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:background="@drawable/main_submitbg"-->
+            <!--android:text="确定"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:textColor="@color/white"/>-->
     </RelativeLayout>
 
     <RelativeLayout
