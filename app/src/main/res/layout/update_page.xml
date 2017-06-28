@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/change_head"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/headbg"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/backtoperson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="修改信息"
+            android:textColor="#fff"
+            android:textSize="22sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名："
+            android:textSize="20sp"
+            android:textColor="#000"
+            />
+        <EditText
+
+            android:id="@+id/name_update"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="李宇"
+            android:textSize="20sp"
+            android:background="@null"
+            android:drawableBottom="@drawable/edittext_bg"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年龄："
+            android:textSize="20sp"
+            android:textColor="#000"
+            />
+        <EditText
+            android:id="@+id/age_update"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textSize="20sp"
+            android:inputType="number"
+            android:background="@null"
+            android:drawableBottom="@drawable/edittext_bg"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="体重："
+            android:textSize="20sp"
+            android:textColor="#000"
+            />
+        <EditText
+            android:id="@+id/weight_update"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="60"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"
+            android:background="@null"
+            android:drawableBottom="@drawable/edittext_bg"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <RadioGroup
+            android:id="@+id/gender_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/male_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="男"
+                android:textColor="#000"
+                android:textSize="20sp"
+
+                />
+
+            <RadioButton
+                android:id="@+id/female_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="女"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <com.andexert.library.RippleView
+       android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/update"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/buttonback_person"
+        app:rv_alpha="80"
+        >
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保 存"
+            android:textColor="#fff"
+            android:textSize="22sp"/>
+    </com.andexert.library.RippleView>
+</LinearLayout>
