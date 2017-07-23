@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/eat"
-        android:label="DHU热量"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"/>
@@ -19,6 +19,7 @@
         </activity>
        <activity android:name="com.example.person.PersonActivity"/>
         <activity android:name="com.example.person.UpdateActivity"/>
+        <activity android:name="com.example.person.LinkActivity"/>
     </application>
 
 </manifest>

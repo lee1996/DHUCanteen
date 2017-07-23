@@ -128,6 +128,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, PersonActivity.class);
                 startActivity(intent);
+
             }
         });
         preferences=getSharedPreferences("needCal",MODE_PRIVATE);
@@ -541,6 +542,7 @@ public class MainActivity extends BaseActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
+
     }
     @Override
     protected void onPause() {

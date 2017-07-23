@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/personhead"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/headbg"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    <ImageView
+        android:id="@+id/backtoperson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="知识"
+        android:textColor="#fff"
+        android:textSize="22sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textSize="18sp"
+            android:text="人体基础代谢的需要的基本热量精确算法（单位：千卡）\n
+女子\n
+年龄\n
+18- 30 岁   14.6 x 体重（公斤）+ 450\n
+31- 60 岁   8.6 x 体重（公斤） + 830\n
+60岁以上     10.4 x 体重（公斤）+ 600\n
+男子\n
+18- 30 岁   15.2 x 体重（公斤）+ 680\n
+31- 60 岁   11.5 x 体重（公斤）+ 830\n
+60岁以上     13.4 x 体重（公斤）+ 490\n
+"/>
+
+    </LinearLayout>
+</LinearLayout>

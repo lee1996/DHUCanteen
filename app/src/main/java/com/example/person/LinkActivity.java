@@ -2,33 +2,22 @@ package com.example.person;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.andexert.library.RippleView;
 import com.example.customshoppingcardemo.MainActivity;
 import com.example.customshoppingcardemo.R;
 
-import org.w3c.dom.Text;
-
 /**
- * Created by Leet on 2017/5/1 0001.
+ * Created by leet on 17-7-1.
  */
 
-public class PersonActivity extends Activity {
-    private TextView name_show;
-    private TextView age_show;
-    private TextView gender_show;
-    private TextView weight_show;
-    private ImageView backtomain;
-    private ImageView link;
-    private RippleView change;
-    private SharedPreferences preferences;
+public class LinkActivity extends Activity {
+    private ImageView backtoperson;
     private static final int YSPEED_MIN=1000;
     private static final int XDISTANCE_MIN=50;
     private static final int YDISTANCE_MIN=100;
@@ -38,62 +27,23 @@ public class PersonActivity extends Activity {
     private float yMove;
     private VelocityTracker mVelocityTracker;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.person_page);
-        change= (RippleView) findViewById(R.id.change);
-        change.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(PersonActivity.this,UpdateActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        backtomain= (ImageView) findViewById(R.id.backtomain);
-        backtomain.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.link);
+        backtoperson= (ImageView) findViewById(R.id.backtoperson);
+        backtoperson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(PersonActivity.this, MainActivity.class);
+                Intent intent=new Intent(LinkActivity.this,PersonActivity.class);
                 startActivity(intent);
-
             }
         });
-        name_show= (TextView) findViewById(R.id.name_show);
-        age_show= (TextView) findViewById(R.id.age_show);
-        gender_show= (TextView) findViewById(R.id.gender_show);
-        weight_show= (TextView) findViewById(R.id.weight_show);
-        preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
-
-        name_show.setText(preferences.getString("username","DHU"));
-        age_show.setText(String.valueOf(preferences.getInt("age",10)));
-        float init=(float) 23.5;
-        gender_show.setText(preferences.getString("gender","男"));
-        weight_show.setText(String.valueOf(preferences.getFloat("weight",init)));
-        link= (ImageView) findViewById(R.id.link);
-        link.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(PersonActivity.this,LinkActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent=new Intent(PersonActivity.this,MainActivity.class);
-        startActivity(intent);
-
     }
     @Override
     protected void onPause() {
         super.onPause();
         overridePendingTransition(R.anim.leftin,R.anim.rightout);
-   }
-
+    }
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         createVelocity(ev);
@@ -109,7 +59,7 @@ public class PersonActivity extends Activity {
                 int distanceY=(int)(yMove-yDown);
                 int ySpeed=getScrollVelocity();
                 if(distanceX > XDISTANCE_MIN &&(distanceY<YDISTANCE_MIN&&distanceY>-YDISTANCE_MIN)&& ySpeed < YSPEED_MIN) {
-                    Intent intent=new Intent(PersonActivity.this, MainActivity.class);
+                    Intent intent=new Intent(LinkActivity.this, PersonActivity.class);
                     startActivity(intent);
                 }
                 break;

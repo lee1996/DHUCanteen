@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <LinearLayout
@@ -24,7 +25,6 @@
             android:id="@+id/backtomain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:src="@drawable/back" />
@@ -32,12 +32,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="个人信息"
             android:textColor="#fff"
             android:textSize="22sp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/link" />
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/head_back"
@@ -57,15 +64,19 @@
             />
     </RelativeLayout>
 
-
     <LinearLayout
         android:id="@+id/name_box"
         android:layout_below="@+id/head_back"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#F0FFF0"
+        android:layout_height="60dp"
         android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:src="@drawable/name"/>
         <TextView
             android:id="@+id/name_label"
             android:layout_width="wrap_content"
@@ -74,7 +85,7 @@
             android:typeface="monospace"
             android:textSize="20sp"
             android:textColor="#666"
-            android:paddingLeft="8dp"/>
+            android:paddingLeft="20dp"/>
         <TextView
             android:paddingLeft="50dp"
             android:layout_toRightOf="@+id/name_label"
@@ -82,18 +93,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="李宇"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="#A1A1A1"/>
     </LinearLayout>
-
-    <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#888"/>
+    <LinearLayout
         android:id="@+id/age_box"
         android:layout_below="@+id/name_box"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#F0FFF0"
+        android:layout_height="60dp"
+
         android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:src="@drawable/age"/>
         <TextView
             android:id="@+id/age_label"
             android:layout_width="wrap_content"
@@ -101,7 +119,7 @@
             android:text="年龄："
             android:textSize="20sp"
             android:textColor="#666"
-            android:paddingLeft="8dp"/>
+            android:paddingLeft="20dp"/>
         <TextView
             android:paddingLeft="50dp"
             android:layout_toRightOf="@+id/age_label"
@@ -109,18 +127,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="20"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="#A1A1A1"/>
-    </RelativeLayout>
-
-    <RelativeLayout
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#888"/>
+    <LinearLayout
         android:id="@+id/gender_box"
         android:layout_below="@+id/age_box"
-        android:layout_marginTop="5dp"
+
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#F0FFF0"
+        android:layout_height="60dp"
+
         android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:src="@drawable/gender"/>
         <TextView
             android:id="@+id/gender_label"
             android:layout_width="wrap_content"
@@ -128,7 +154,7 @@
             android:text="性别："
             android:textSize="20sp"
             android:textColor="#666"
-            android:paddingLeft="8dp"/>
+            android:paddingLeft="20dp"/>
         <TextView
             android:paddingLeft="50dp"
             android:layout_toRightOf="@+id/gender_label"
@@ -136,18 +162,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="男"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="#A1A1A1"/>
-    </RelativeLayout>
-
-    <RelativeLayout
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#888"/>
+    <LinearLayout
         android:id="@+id/weight_box"
         android:layout_below="@+id/gender_box"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#F0FFF0"
+        android:layout_height="60dp"
         android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:src="@drawable/weight"/>
         <TextView
             android:id="@+id/weight_label"
             android:layout_width="wrap_content"
@@ -155,7 +187,7 @@
             android:text="体重："
             android:textSize="20sp"
             android:textColor="#666"
-            android:paddingLeft="8dp"/>
+            android:paddingLeft="20dp"/>
         <TextView
 
             android:paddingLeft="50dp"
@@ -164,10 +196,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="60"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="#A1A1A1"/>
         <TextView
-            android:paddingRight="25dp"
+            android:paddingLeft="100dp"
             android:gravity="right"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -179,8 +211,11 @@
             android:textColor="#A1A1A1"
             android:textSize="22sp"
             />
-    </RelativeLayout>
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#888"/>
     <com.andexert.library.RippleView
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
