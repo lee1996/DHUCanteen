@@ -9,7 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"/>
-
         <activity android:name="com.example.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <activity android:name="com.example.person.PersonActivity"/>
-        <activity android:name="com.example.person.UpdateActivity"/>
-        <activity android:name="com.example.person.LinkActivity"/>
+       <activity android:name="com.example.person.PersonActivity" android:theme="@style/JK.SwipeBack.Transparent.Theme"
+           />
+        <activity android:name="com.example.person.UpdateActivity" android:theme="@style/JK.SwipeBack.Transparent.Theme"/>
+        <activity android:name="com.example.person.LinkActivity" android:theme="@style/JK.SwipeBack.Transparent.Theme"/>
     </application>
 
 </manifest>

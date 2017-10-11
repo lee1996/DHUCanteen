@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andexert.library.RippleView;
+import com.example.animutils.BaseActivity;
 import com.example.customshoppingcardemo.MainActivity;
 import com.example.customshoppingcardemo.R;
 
@@ -25,7 +26,7 @@ import com.example.customshoppingcardemo.R;
  * Created by Leet on 2017/5/1 0001.
  */
 
-public class UpdateActivity extends Activity {
+public class UpdateActivity extends BaseActivity {
     private EditText name_update;
     private EditText age_update;
     private RadioGroup gender_update;
@@ -196,6 +197,8 @@ public class UpdateActivity extends Activity {
                     Toast.makeText(UpdateActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(UpdateActivity.this, PersonActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(0,R.anim.out_to_left);
+                    finish();
                 }
             }
         });
@@ -205,63 +208,66 @@ public class UpdateActivity extends Activity {
             public void onClick(View v) {
                 Intent intent=new Intent(UpdateActivity.this,PersonActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0,R.anim.out_to_left);
+                finish();
+
             }
         });
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent=new Intent(UpdateActivity.this,PersonActivity.class);
-        startActivity(intent);
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        overridePendingTransition(R.anim.leftin,R.anim.rightout);
-    }
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        createVelocity(ev);
-        switch (ev.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                xDown=ev.getRawX();
-                yDown=ev.getRawY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                xMove=ev.getRawX();
-                yMove=ev.getRawY();
-                int distanceX=(int)(xMove-xDown);
-                int distanceY=(int)(yMove-yDown);
-                int ySpeed=getScrollVelocity();
-                if(distanceX > XDISTANCE_MIN &&(distanceY<YDISTANCE_MIN&&distanceY>-YDISTANCE_MIN)&& ySpeed < YSPEED_MIN) {
-                    Intent intent=new Intent(UpdateActivity.this, PersonActivity.class);
-                    startActivity(intent);
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                recycleVelocityTracker();
-                break;
-            default:
-                break;
-        }
-        return super.dispatchTouchEvent(ev);
-    }
-    public void createVelocity(MotionEvent event){
-        if(mVelocityTracker==null){
-            mVelocityTracker=VelocityTracker.obtain();
-        }
-        mVelocityTracker.addMovement(event);
-    }
-
-    private void recycleVelocityTracker(){
-        mVelocityTracker.recycle();
-        mVelocityTracker=null;
-    }
-
-    private int getScrollVelocity(){
-        mVelocityTracker.computeCurrentVelocity(1000);
-        int velocity=(int)mVelocityTracker.getYVelocity();
-        return velocity;
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Intent intent=new Intent(UpdateActivity.this,PersonActivity.class);
+//        startActivity(intent);
+//    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        overridePendingTransition(R.anim.leftin,R.anim.rightout);
+//    }
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        createVelocity(ev);
+//        switch (ev.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                xDown=ev.getRawX();
+//                yDown=ev.getRawY();
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                xMove=ev.getRawX();
+//                yMove=ev.getRawY();
+//                int distanceX=(int)(xMove-xDown);
+//                int distanceY=(int)(yMove-yDown);
+//                int ySpeed=getScrollVelocity();
+//                if(distanceX > XDISTANCE_MIN &&(distanceY<YDISTANCE_MIN&&distanceY>-YDISTANCE_MIN)&& ySpeed < YSPEED_MIN) {
+//                    Intent intent=new Intent(UpdateActivity.this, PersonActivity.class);
+//                    startActivity(intent);
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                recycleVelocityTracker();
+//                break;
+//            default:
+//                break;
+//        }
+//        return super.dispatchTouchEvent(ev);
+//    }
+//    public void createVelocity(MotionEvent event){
+//        if(mVelocityTracker==null){
+//            mVelocityTracker=VelocityTracker.obtain();
+//        }
+//        mVelocityTracker.addMovement(event);
+//    }
+//
+//    private void recycleVelocityTracker(){
+//        mVelocityTracker.recycle();
+//        mVelocityTracker=null;
+//    }
+//
+//    private int getScrollVelocity(){
+//        mVelocityTracker.computeCurrentVelocity(1000);
+//        int velocity=(int)mVelocityTracker.getYVelocity();
+//        return velocity;
+//    }
 }

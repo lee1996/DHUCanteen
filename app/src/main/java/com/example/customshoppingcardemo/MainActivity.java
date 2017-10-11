@@ -13,7 +13,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 import com.example.animutils.GoodsAnimUtil;
+
 import com.example.baseactivity.BaseActivity;
 import com.example.datasave.DemoData;
 import com.example.datasave.GoodsDataBaseInterface;
@@ -542,12 +545,13 @@ public class MainActivity extends BaseActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
+        //finish();
 
     }
     @Override
     protected void onPause() {
         super.onPause();
-        overridePendingTransition(R.anim.leftin,R.anim.rightout);
+       // overridePendingTransition(R.anim.leftin,R.anim.rightout);
     }
 
 
