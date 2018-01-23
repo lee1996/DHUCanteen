@@ -68,7 +68,8 @@
         android:layout_alignParentBottom="true"
         android:layout_height="70dp">
 
-        <TextView android:id="@+id/m_list_all_price"
+        <TextView
+            android:id="@+id/m_list_all_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="65dp"

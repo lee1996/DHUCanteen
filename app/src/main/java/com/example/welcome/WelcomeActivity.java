@@ -14,14 +14,17 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.andexert.library.RippleView;
+import com.example.animutils.BaseActivity;
 import com.example.customshoppingcardemo.MainActivity;
 import com.example.customshoppingcardemo.R;
+import com.gyf.barlibrary.ImmersionBar;
 
 /**
  * Created by Leet on 2017/5/1 0001.
  */
 
 public class WelcomeActivity extends Activity {
+    private ImmersionBar mImmersionBar;
     private EditText username;
     private EditText age;
     private RadioGroup gender;
@@ -36,6 +39,8 @@ public class WelcomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.init();
         username= (EditText) findViewById(R.id.name);
         username.getBackground().setAlpha(125);
         age= (EditText) findViewById(R.id.age);
@@ -161,5 +166,12 @@ public class WelcomeActivity extends Activity {
     protected void onPause() {
         super.onPause();
         overridePendingTransition(R.anim.floatin,R.anim.rightout);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mImmersionBar != null)
+            mImmersionBar.destroy();
     }
 }

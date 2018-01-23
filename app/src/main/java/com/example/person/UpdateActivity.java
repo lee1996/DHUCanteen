@@ -22,41 +22,46 @@ import com.example.animutils.BaseActivity;
 import com.example.customshoppingcardemo.MainActivity;
 import com.example.customshoppingcardemo.R;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by Leet on 2017/5/1 0001.
  */
 
 public class UpdateActivity extends BaseActivity {
-    private EditText name_update;
-    private EditText age_update;
-    private RadioGroup gender_update;
-    private RadioButton male_update;
-    private RadioButton female_update;
-    private EditText weight_update;
-    private RippleView update;
-    private ImageView backtoperson;
+    @InjectView(R.id.name_update)
+    EditText name_update;
+    @InjectView(R.id.age_update)
+    EditText age_update;
+    @InjectView(R.id.gender_update)
+    RadioGroup gender_update;
+    @InjectView(R.id.male_update)
+    RadioButton male_update;
+    @InjectView(R.id.female_update)
+    RadioButton female_update;
+    @InjectView(R.id.weight_update)
+    EditText weight_update;
+    @InjectView(R.id.update)
+    RippleView update;
+    @InjectView(R.id.backtoperson)
+    ImageView backtoperson;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
     private float needCal;
-    private static final int YSPEED_MIN=1000;
-    private static final int XDISTANCE_MIN=50;
-    private static final int YDISTANCE_MIN=100;
-    private float xDown;
-    private float yDown;
-    private float xMove;
-    private float yMove;
-    private VelocityTracker mVelocityTracker;
+//    private static final int YSPEED_MIN=1000;
+//    private static final int XDISTANCE_MIN=50;
+//    private static final int YDISTANCE_MIN=100;
+//    private float xDown;
+//    private float yDown;
+//    private float xMove;
+//    private float yMove;
+//    private VelocityTracker mVelocityTracker;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_page);
-        name_update= (EditText) findViewById(R.id.name_update);
-        age_update= (EditText) findViewById(R.id.age_update);
-       gender_update= (RadioGroup) findViewById(R.id.gender_update);
-        male_update= (RadioButton) findViewById(R.id.male_update);
-        female_update= (RadioButton) findViewById(R.id.female_update);
-        weight_update= (EditText) findViewById(R.id.weight_update);
-        update= (RippleView) findViewById(R.id.update);
+        ButterKnife.inject(UpdateActivity.this);
         name_update.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -195,14 +200,13 @@ public class UpdateActivity extends BaseActivity {
                     editor.putFloat("need",needCal);
                     editor.commit();
                     Toast.makeText(UpdateActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(UpdateActivity.this, PersonActivity.class);
+                    Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
                     startActivity(intent);
                     overridePendingTransition(0,R.anim.out_to_left);
                     finish();
                 }
             }
         });
-        backtoperson= (ImageView) findViewById(R.id.backtoperson);
         backtoperson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -14,26 +14,29 @@ import com.example.animutils.BaseActivity;
 import com.example.customshoppingcardemo.MainActivity;
 import com.example.customshoppingcardemo.R;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by leet on 17-7-1.
  */
 
 public class LinkActivity extends BaseActivity {
-    private ImageView backtoperson;
-    private static final int YSPEED_MIN=1000;
-    private static final int XDISTANCE_MIN=50;
-    private static final int YDISTANCE_MIN=100;
-    private float xDown;
-    private float yDown;
-    private float xMove;
-    private float yMove;
-    private VelocityTracker mVelocityTracker;
+    @InjectView(R.id.backtoperson)
+    ImageView backtoperson;
+//    private static final int YSPEED_MIN=1000;
+//    private static final int XDISTANCE_MIN=50;
+//    private static final int YDISTANCE_MIN=100;
+//    private float xDown;
+//    private float yDown;
+//    private float xMove;
+//    private float yMove;
+//    private VelocityTracker mVelocityTracker;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.link);
-        backtoperson= (ImageView) findViewById(R.id.backtoperson);
+        ButterKnife.inject(LinkActivity.this);
         backtoperson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

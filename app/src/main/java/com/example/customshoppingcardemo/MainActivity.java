@@ -1,4 +1,5 @@
 package com.example.customshoppingcardemo;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 
 import com.example.animutils.GoodsAnimUtil;
 
-import com.example.baseactivity.BaseActivity;
+
 import com.example.datasave.DemoData;
 import com.example.datasave.GoodsDataBaseInterface;
 import com.example.datasave.OperateGoodsDataBase;
@@ -29,6 +30,7 @@ import com.example.recycler.RecyclerViewContentAdapter;
 import com.example.recycler.RecyclerViewMenuAdapter;
 import com.example.recycler.SecondCanteenFirstFloorAdapter;
 import com.example.recycler.SecondCanteenSecondFloorAdapter;
+import com.gyf.barlibrary.ImmersionBar;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 import org.w3c.dom.Text;
@@ -38,7 +40,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends Activity {
     /**
      * 标题
      */
@@ -545,6 +547,7 @@ public class MainActivity extends BaseActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
+        overridePendingTransition(0,R.anim.off);
         //finish();
 
     }
@@ -554,5 +557,10 @@ public class MainActivity extends BaseActivity {
        // overridePendingTransition(R.anim.leftin,R.anim.rightout);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        need.postInvalidate();
+    }
 
 }

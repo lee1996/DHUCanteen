@@ -12,6 +12,7 @@ import android.view.Window;
 import android.widget.FrameLayout;
 
 import com.example.customshoppingcardemo.R;
+import com.gyf.barlibrary.ImmersionBar;
 
 import java.lang.reflect.Field;
 
@@ -21,11 +22,13 @@ import java.lang.reflect.Field;
 //// TODO: 17-10-11 刷新数据 
 public abstract class BaseActivity extends Activity implements SlidingPaneLayout.PanelSlideListener {
     public final static String TAG=BaseActivity.class.getCanonicalName();
+    private ImmersionBar mImmersionBar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar.init();
         initSwipeFinish();
     }
     public void initSwipeFinish(){
@@ -58,6 +61,7 @@ public abstract class BaseActivity extends Activity implements SlidingPaneLayout
 
     @Override
     public void onPanelOpened(View panel) {
+        this.onResume();
         finish();
         this.overridePendingTransition(0, R.anim.out);
     }
@@ -66,6 +70,12 @@ public abstract class BaseActivity extends Activity implements SlidingPaneLayout
     public void onPanelClosed(View panel) {
 
 
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mImmersionBar != null)
+            mImmersionBar.destroy();
     }
 }
 

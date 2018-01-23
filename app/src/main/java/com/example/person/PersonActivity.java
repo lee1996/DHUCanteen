@@ -19,32 +19,42 @@ import com.example.customshoppingcardemo.R;
 
 import org.w3c.dom.Text;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by Leet on 2017/5/1 0001.
  */
 
 public class PersonActivity extends BaseActivity {
-    private TextView name_show;
-    private TextView age_show;
-    private TextView gender_show;
-    private TextView weight_show;
-    private ImageView backtomain;
-    private ImageView link;
-    private RippleView change;
+    @InjectView(R.id.change)
+    RippleView change;
+    @InjectView(R.id.backtomain)
+    ImageView backtomain;
+    @InjectView(R.id.name_show)
+    TextView name_show;
+    @InjectView(R.id.age_show)
+    TextView age_show;
+    @InjectView(R.id.gender_show)
+    TextView gender_show;
+    @InjectView(R.id.weight_show)
+    TextView weight_show;
+    @InjectView(R.id.link)
+    ImageView link;
     private SharedPreferences preferences;
-    private static final int YSPEED_MIN=1000;
-    private static final int XDISTANCE_MIN=50;
-    private static final int YDISTANCE_MIN=100;
-    private float xDown;
-    private float yDown;
-    private float xMove;
-    private float yMove;
-    private VelocityTracker mVelocityTracker;
+//    private static final int YSPEED_MIN=1000;
+//    private static final int XDISTANCE_MIN=50;
+//    private static final int YDISTANCE_MIN=100;
+//    private float xDown;
+//    private float yDown;
+//    private float xMove;
+//    private float yMove;
+//    private VelocityTracker mVelocityTracker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.person_page);
-        change= (RippleView) findViewById(R.id.change);
+        ButterKnife.inject(PersonActivity.this);
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +65,6 @@ public class PersonActivity extends BaseActivity {
 
             }
         });
-        backtomain= (ImageView) findViewById(R.id.backtomain);
         backtomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,10 +75,6 @@ public class PersonActivity extends BaseActivity {
 
             }
         });
-        name_show= (TextView) findViewById(R.id.name_show);
-        age_show= (TextView) findViewById(R.id.age_show);
-        gender_show= (TextView) findViewById(R.id.gender_show);
-        weight_show= (TextView) findViewById(R.id.weight_show);
         preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
 
         name_show.setText(preferences.getString("username","DHU"));
@@ -77,7 +82,6 @@ public class PersonActivity extends BaseActivity {
         float init=(float) 23.5;
         gender_show.setText(preferences.getString("gender","男"));
         weight_show.setText(String.valueOf(preferences.getFloat("weight",init)));
-        link= (ImageView) findViewById(R.id.link);
         link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -7,13 +7,14 @@
     <RelativeLayout
         android:id="@+id/personhead"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="76dp"
         android:background="@drawable/headbg"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="0dp">
 
     <ImageView
+        android:paddingTop="23dp"
         android:id="@+id/backtoperson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         android:src="@drawable/back" />
 
     <TextView
+        android:paddingTop="23dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="知识"
