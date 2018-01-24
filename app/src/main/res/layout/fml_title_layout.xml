@@ -23,12 +23,12 @@
     <ImageView
         android:id="@+id/user"
         android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_toRightOf="@+id/m_fml_title_tv"
         android:layout_alignParentRight="true"
-        android:paddingRight="-50dp"
-        android:src="@drawable/use"
+        android:paddingRight="-60dp"
+        android:src="@drawable/personal"
         />
 
 </RelativeLayout>
